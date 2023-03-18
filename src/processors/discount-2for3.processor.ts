@@ -16,10 +16,19 @@ export class Discount2For3Processor implements DiscountProcessor {
       discountProducts,
     );
 
+    // store the previous products. apply discount once it has 3 items matched, and clear the array.
+    let prevProducts = [];
+
     const result: ResultedProductItem[] = _.map(productItems, (productItem) => {
       if (discountProducts.indexOf(productItem.product) >= 0) {
-        productItem.resultedPrice = productItem.price - 0.3;
-        productItem.discountCode = Discount2For3Processor.code;
+        prevProducts.push(productItem);
+        if (prevProducts.length === 3) {
+          // set the cheapest one's resulted price to zero
+          const cheapestItem = _.minBy(prevProducts, 'price');
+          cheapestItem.resultedPrice = 0;
+          cheapestItem.discountCode = Discount2For3Processor.code;
+          prevProducts = [];
+        }
       }
       return productItem;
     });
