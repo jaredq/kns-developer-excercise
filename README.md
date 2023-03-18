@@ -68,3 +68,8 @@ You are free to make your solution to this exercise as simple or as complicated 
 - REST/HTTP API
 - User interface (web app)
 - Application CLI
+
+## Running services
+
+- Make a directory named 'data' under the project root directory, this is for storing the database data permanently.
+- Run 'docker-compose up'

@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Discount } from './entities/discount.entity';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { DiscountsController } from './discounts/discounts.controller';
+import { DiscountsService } from './discounts/discounts.service';
 
 @Module({
   imports: [
@@ -13,8 +16,9 @@ import { AppService } from './app.service';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
+    TypeOrmModule.forFeature([Discount]),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, DiscountsController],
+  providers: [AppService, DiscountsService],
 })
 export class AppModule {}
