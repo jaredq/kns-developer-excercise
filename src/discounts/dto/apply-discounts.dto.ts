@@ -1,3 +1,4 @@
+import { CommonResponse } from './../../shared/dto/common.dto';
 import { IsArray, IsNumber, IsString, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
 
@@ -9,11 +10,11 @@ class ProductItem {
   price: number;
 }
 
-export class DiscountedProductItem {
+export class ResultedProductItem {
   product: string;
   price: number;
-  discountedPrice: number;
-  discountCode: string;
+  resultedPrice: number;
+  discountCode?: string;
 }
 
 export class ApplyDiscountsInput {
@@ -21,7 +22,8 @@ export class ApplyDiscountsInput {
 }
 
 export class ApplyDiscountsOutput {
-  discountedProducts: DiscountedProductItem[];
+  resultedProducts: ResultedProductItem[];
+  total: number;
 }
 
 export class ApplyDiscountsRequest {
@@ -31,6 +33,6 @@ export class ApplyDiscountsRequest {
   products: ProductItem[];
 }
 
-export class ApplyDiscountsResponse {
+export class ApplyDiscountsResponse extends CommonResponse {
   data: ApplyDiscountsOutput;
 }

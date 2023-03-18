@@ -3,6 +3,7 @@ import {
   CancelDiscountResponse,
 } from './dto/cancel-discount.dto';
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -39,18 +40,22 @@ export class DiscountsController {
         startTime: body.startTime,
         endTime: body.endTime,
       };
-      const createdDiscountOutput = await this.discountsService.createDiscount(
-        payload,
-      );
+      const result = await this.discountsService.createDiscount(payload);
       return {
         success: true,
-        data: createdDiscountOutput,
+        message: `Discount with code ${body.code} has been created.`,
+        data: result,
       };
     } catch (error) {
-      throw new HttpException(
-        'Unable to create discount.',
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
+      console.error('createDiscount', error);
+      if (error instanceof BadRequestException) {
+        throw error;
+      } else {
+        throw new HttpException(
+          'Unable to create discount.',
+          HttpStatus.INTERNAL_SERVER_ERROR,
+        );
+      }
     }
   }
 
@@ -69,6 +74,7 @@ export class DiscountsController {
         data: result,
       };
     } catch (error) {
+      console.error('cancelDiscount', error);
       if (error instanceof NotFoundException) {
         throw error;
       } else {
@@ -88,11 +94,14 @@ export class DiscountsController {
       const payload: ApplyDiscountsInput = {
         products: body.products,
       };
-      const discountedResult = await this.discountsService.applyDiscounts(
-        payload,
-      );
-      return { data: discountedResult };
+      const result = await this.discountsService.applyDiscounts(payload);
+      return {
+        success: true,
+        message: `Discounts have been applied.`,
+        data: result,
+      };
     } catch (error) {
+      console.error('applyDiscounts', error);
       throw new HttpException(
         'Unable to apply discount.',
         HttpStatus.INTERNAL_SERVER_ERROR,
