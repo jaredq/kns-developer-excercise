@@ -16,10 +16,19 @@ export class DiscountBuy1Get1HalfPriceProcessor implements DiscountProcessor {
       discountProducts,
     );
 
+    // mark if a product has been scanned once. delete it if the same product is scanned again.
+    // the key is product name and the value is its prodcut item.
+    const prevProduct = {};
+
     const result: ResultedProductItem[] = _.map(productItems, (productItem) => {
       if (discountProducts.indexOf(productItem.product) >= 0) {
-        productItem.resultedPrice = productItem.price - 0.4;
-        productItem.discountCode = DiscountBuy1Get1HalfPriceProcessor.code;
+        if (prevProduct[productItem.product]) {
+          productItem.resultedPrice = productItem.price / 2;
+          productItem.discountCode = DiscountBuy1Get1HalfPriceProcessor.code;
+          delete prevProduct[productItem.product];
+        } else {
+          prevProduct[productItem.product] = productItem;
+        }
       }
       return productItem;
     });

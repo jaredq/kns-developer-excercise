@@ -1,7 +1,7 @@
-import { DiscountHalfPriceProcessor } from './discount-halfprice.processor';
 import { Injectable } from '@nestjs/common';
-import { DiscountBuy1Get1HalfPriceProcessor } from './discount-buy1get1halfprice.processor';
+import { DiscountHalfPriceProcessor } from './discount-halfprice.processor';
 import { Discount2For3Processor } from './discount-2for3.processor';
+import { DiscountBuy1Get1HalfPriceProcessor } from './discount-buy1get1halfprice.processor';
 
 @Injectable()
 export class DiscountProcessorMap {
