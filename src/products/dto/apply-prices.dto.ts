@@ -1,6 +1,7 @@
 class ProductItem {
   name: string;
-  price: number;
+  price?: number;
+  notFound?: boolean;
 }
 
 // input DTO for service

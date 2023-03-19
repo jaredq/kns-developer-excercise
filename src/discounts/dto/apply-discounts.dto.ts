@@ -1,19 +1,18 @@
 import { CommonResponse } from './../../shared/dto/common.dto';
-import { IsArray, IsNumber, IsString, ValidateNested } from 'class-validator';
+import { IsArray, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
 
 class ProductItem {
-  @IsString()
   product: string;
-
-  @IsNumber()
-  price: number;
+  price?: number;
+  notFound?: boolean;
 }
 
 export class ResultedProductItem {
   product: string;
-  price: number;
-  resultedPrice: number;
+  price?: number;
+  notFound?: boolean;
+  resultedPrice?: number;
   discountCode?: string;
 }
 

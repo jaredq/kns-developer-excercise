@@ -41,7 +41,14 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should return "KNS Pricing and Discounting Service"', () => {
-      console.log('appController.getHello()', appController.getHello());
+      expect(appController.getHello()).toBe(
+        'KNS Pricing and Discounting Service',
+      );
+    });
+  });
+
+  describe('scan', () => {
+    it('should return { products, totalPrice } ', () => {
       expect(appController.getHello()).toBe(
         'KNS Pricing and Discounting Service',
       );

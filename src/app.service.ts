@@ -33,6 +33,7 @@ export class AppService {
       products: applyPricesOutput.products.map((p) => ({
         product: p.name,
         price: p.price,
+        notFound: p.notFound,
       })),
     };
     const applyDiscountsOutput = await this.discountsService.applyDiscounts(
@@ -44,6 +45,7 @@ export class AppService {
       products: applyDiscountsOutput.resultedProducts.map((p) => ({
         name: p.product,
         price: p.price,
+        notFound: p.notFound,
         resultedPrice: p.resultedPrice,
         discountCode: p.discountCode,
       })),

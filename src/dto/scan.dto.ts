@@ -3,6 +3,7 @@ import { CommonResponse } from '../shared/dto';
 class ProductItem {
   name: string;
   price: number;
+  notFound: boolean;
   resultedPrice: number;
   discountCode?: string;
 }

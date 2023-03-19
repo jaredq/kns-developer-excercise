@@ -77,10 +77,19 @@ export class ProductsService {
     );
     console.debug('applyPrices()#productNameToPriceMap', productNameToPriceMap);
 
-    const result = _.map(names, (name) => ({
-      name,
-      price: productNameToPriceMap[name],
-    }));
+    const result = _.map(names, (name) => {
+      if (name in productNameToPriceMap) {
+        return {
+          name,
+          price: productNameToPriceMap[name],
+        };
+      } else {
+        return {
+          name,
+          notFound: true,
+        };
+      }
+    });
     console.debug('applyPrices()#result', result);
 
     return { products: result };

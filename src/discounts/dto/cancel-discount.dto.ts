@@ -1,5 +1,4 @@
 import { CommonResponse } from '../../shared/dto/common.dto';
-import { IsNotEmpty, IsDate } from 'class-validator';
 
 // input DTO for service
 export class CancelDiscountInput {

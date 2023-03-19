@@ -80,7 +80,7 @@ export class DiscountsService {
 
     const { products } = payload;
 
-    // find current related valid discounts
+    // find current relevant valid discounts
     const productNames = _.uniq(_.map(products, 'product'));
     console.debug('productNames', productNames);
 
@@ -94,6 +94,7 @@ export class DiscountsService {
     });
     console.debug('discountItems', discountItems);
 
+    // get the codes of current relevant valid discounts
     const discountCodes = _.uniq(_.map(discountItems, 'code'));
     console.debug('discountCodes', discountCodes);
 
@@ -101,14 +102,18 @@ export class DiscountsService {
     let resultedProducts = products.map((p) => ({
       product: p.product,
       price: p.price,
+      notFound: p.notFound,
       resultedPrice: p.price,
     }));
-    // apply each related processors
+
+    // apply each relevant discount processors
     resultedProducts = _.reduce(
       discountCodes,
       (resultedProducts, discountCode) => {
         const discountProcessor =
           this.discountProcessorMap.getProcessor(discountCode);
+
+        // get discount products related to this discount code
         const discountProducts = _.uniq(
           _.map(discountItems, (discountItem) => {
             if (discountItem.code === discountCode) return discountItem.product;
@@ -122,7 +127,8 @@ export class DiscountsService {
     // calculate total price
     const total = _.reduce(
       resultedProducts,
-      (sum, resultedProduct) => sum + resultedProduct.resultedPrice,
+      (sum, resultedProduct) =>
+        sum + (!resultedProduct.notFound ? resultedProduct.resultedPrice : 0),
       0,
     );
 
