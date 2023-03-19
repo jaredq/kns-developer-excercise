@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"potato\",\n    \"price\": 26\n}",
+							"raw": "{\n    \"name\": \"kiwi\",\n    \"price\": 126\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -34,7 +34,128 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "saveProduct apple",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"apple\",\n    \"price\": 50\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_host}}/products/",
+									"host": [
+										"{{api_host}}"
+									],
+									"path": [
+										"products",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "saveProduct banana",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"banana\",\n    \"price\": 40\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_host}}/products/",
+									"host": [
+										"{{api_host}}"
+									],
+									"path": [
+										"products",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "saveProduct tomato",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"tomato\",\n    \"price\": 30\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_host}}/products/",
+									"host": [
+										"{{api_host}}"
+									],
+									"path": [
+										"products",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "saveProduct potato",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"potato\",\n    \"price\": 26\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_host}}/products/",
+									"host": [
+										"{{api_host}}"
+									],
+									"path": [
+										"products",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "removeProduct",
@@ -42,13 +163,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{api_host}}/products/1",
+							"raw": "{{api_host}}/products/7",
 							"host": [
 								"{{api_host}}"
 							],
 							"path": [
 								"products",
-								"1"
+								"7"
 							]
 						}
 					},
@@ -87,40 +208,13 @@
 					"response": []
 				},
 				{
-					"name": "applyDiscounts2",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{api_host}}/discounts/apply",
-							"host": [
-								"{{api_host}}"
-							],
-							"path": [
-								"discounts",
-								"apply"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "createDiscount",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"product\": \"potato\",\n    \"code\": \"buy1get1halfprice\",\n    \"startTime\": \"2023-03-10T00:00:00.000Z\",\n    \"endTime\": \"2023-04-10T22:59:59.999Z\"\n}",
+							"raw": "{\n    \"product\": \"kiwi\",\n    \"code\": \"halfprice\",\n    \"startTime\": \"2023-03-10T00:00:00.000Z\",\n    \"endTime\": \"2023-04-10T22:59:59.999Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -138,7 +232,128 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "createDiscount apple",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product\": \"apple\",\n    \"code\": \"2for3\",\n    \"startTime\": \"2023-03-10T00:00:00.000Z\",\n    \"endTime\": \"2023-04-10T22:59:59.999Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_host}}/discounts/",
+									"host": [
+										"{{api_host}}"
+									],
+									"path": [
+										"discounts",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "createDiscount banana",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product\": \"banana\",\n    \"code\": \"2for3\",\n    \"startTime\": \"2023-03-10T00:00:00.000Z\",\n    \"endTime\": \"2023-04-10T22:59:59.999Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_host}}/discounts/",
+									"host": [
+										"{{api_host}}"
+									],
+									"path": [
+										"discounts",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "createDiscount tomato",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product\": \"tomato\",\n    \"code\": \"2for3\",\n    \"startTime\": \"2023-03-10T00:00:00.000Z\",\n    \"endTime\": \"2023-04-10T22:59:59.999Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_host}}/discounts/",
+									"host": [
+										"{{api_host}}"
+									],
+									"path": [
+										"discounts",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "createDiscount potato",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product\": \"potato\",\n    \"code\": \"buy1get1halfprice\",\n    \"startTime\": \"2023-03-10T00:00:00.000Z\",\n    \"endTime\": \"2023-04-10T22:59:59.999Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_host}}/discounts/",
+									"host": [
+										"{{api_host}}"
+									],
+									"path": [
+										"discounts",
+										""
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "cancelDiscount",
@@ -184,7 +399,66 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "scan 199 example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\": [\n        \"apple\",\n        \"banana\",\n        \"banana\",\n        \"potato\",\n        \"tomato\",\n        \"banana\",\n        \"potato\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/scan",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"scan"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "scan with unknown products",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\": [\n        \"apple\",\n        \"banana\",\n        \"banana\",\n        \"potato\",\n        \"tomato\",\n        \"pear\",\n        \"potato\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/scan",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"scan"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
 		}
 	]
 }
