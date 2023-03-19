@@ -1,8 +1,4 @@
 import {
-  CancelDiscountInput,
-  CancelDiscountResponse,
-} from './dto/cancel-discount.dto';
-import {
   BadRequestException,
   Body,
   Controller,
@@ -17,14 +13,13 @@ import {
   CreateDiscountRequest,
   CreateDiscountInput,
   CreateDiscountResponse,
-} from './dto/create-discount.dto';
-import { DiscountsService } from './discounts.service';
-import {
+  CancelDiscountInput,
+  CancelDiscountResponse,
   ApplyDiscountsInput,
   ApplyDiscountsRequest,
   ApplyDiscountsResponse,
-} from './dto/apply-discounts.dto';
-
+} from './dto';
+import { DiscountsService } from './discounts.service';
 @Controller('discounts')
 export class DiscountsController {
   constructor(private readonly discountsService: DiscountsService) {}

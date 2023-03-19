@@ -12,11 +12,12 @@ import {
   CreateDiscountInput,
   CreateDiscountOutput,
 } from './dto/create-discount.dto';
-import { CancelDiscountInput, CancelDiscountOutput } from './dto';
 import {
+  CancelDiscountInput,
+  CancelDiscountOutput,
   ApplyDiscountsInput,
   ApplyDiscountsOutput,
-} from './dto/apply-discounts.dto';
+} from './dto';
 
 @Injectable()
 export class DiscountsService {
