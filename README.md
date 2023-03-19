@@ -71,5 +71,8 @@ You are free to make your solution to this exercise as simple or as complicated 
 
 ## Running services
 
-- Make a directory named 'data' under the project root directory, this is for storing the database data permanently.
+- Make a directory named 'data' under the project root directory, this is for storing the database data permanently. Its location can be changed in docker-compose.yml
 - Run 'docker-compose up'
+
+## TODO
+- To use a logger like winston
