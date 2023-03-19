@@ -13,7 +13,7 @@ export class AppService {
   ) {}
 
   getHello(): string {
-    return 'KNS Discount Service';
+    return 'KNS Pricing and Discounting Service';
   }
 
   async scan(payload: ScanInput): Promise<ScanOutput> {

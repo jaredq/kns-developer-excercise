@@ -1,4 +1,4 @@
-import { CommonResponse } from 'src/shared/dto';
+import { CommonResponse } from '../shared/dto';
 
 class ProductItem {
   name: string;

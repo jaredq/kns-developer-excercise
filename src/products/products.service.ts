@@ -2,7 +2,7 @@ import * as _ from 'lodash';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Any, Repository } from 'typeorm';
-import { Product } from 'src/entities';
+import { Product } from '../entities';
 import {
   ApplyPricesInput,
   ApplyPricesOutput,
