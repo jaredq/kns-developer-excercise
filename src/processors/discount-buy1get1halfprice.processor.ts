@@ -2,6 +2,7 @@ import * as _ from 'lodash';
 import { Injectable } from '@nestjs/common';
 import { DiscountProcessor, ResultedProductItem } from './discount.processor';
 
+const DISCOUNTED_RATE = 0.5;
 @Injectable()
 export class DiscountBuy1Get1HalfPriceProcessor implements DiscountProcessor {
   static readonly code: string = 'buy1get1halfprice';
@@ -23,7 +24,7 @@ export class DiscountBuy1Get1HalfPriceProcessor implements DiscountProcessor {
     const result: ResultedProductItem[] = _.map(productItems, (productItem) => {
       if (discountProducts.indexOf(productItem.product) >= 0) {
         if (prevProduct[productItem.product]) {
-          productItem.resultedPrice = productItem.price / 2;
+          productItem.resultedPrice = productItem.price * (1 - DISCOUNTED_RATE);
           productItem.discountCode = DiscountBuy1Get1HalfPriceProcessor.code;
           delete prevProduct[productItem.product];
         } else {

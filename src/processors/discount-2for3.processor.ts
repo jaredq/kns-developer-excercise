@@ -2,6 +2,8 @@ import * as _ from 'lodash';
 import { Injectable } from '@nestjs/common';
 import { DiscountProcessor, ResultedProductItem } from './discount.processor';
 
+const DISCOUNT_GROUP_SIZE = 3;
+const DISCOUNT_RESULTED_PRICE = 0;
 @Injectable()
 export class Discount2For3Processor implements DiscountProcessor {
   static readonly code: string = '2for3';
@@ -22,10 +24,10 @@ export class Discount2For3Processor implements DiscountProcessor {
     const result: ResultedProductItem[] = _.map(productItems, (productItem) => {
       if (discountProducts.indexOf(productItem.product) >= 0) {
         prevProducts.push(productItem);
-        if (prevProducts.length === 3) {
+        if (prevProducts.length === DISCOUNT_GROUP_SIZE) {
           // set the cheapest one's resulted price to zero
           const cheapestItem = _.minBy(prevProducts, 'price');
-          cheapestItem.resultedPrice = 0;
+          cheapestItem.resultedPrice = DISCOUNT_RESULTED_PRICE;
           cheapestItem.discountCode = Discount2For3Processor.code;
           prevProducts = [];
         }
