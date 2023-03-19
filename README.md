@@ -76,3 +76,4 @@ You are free to make your solution to this exercise as simple or as complicated 
 
 ## TODO
 - To use a logger like winston
+- To cache the prices of products
