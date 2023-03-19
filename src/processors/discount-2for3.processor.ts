@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { DiscountProcessor, ResultedProductItem } from './discount.processor';
 
 const DISCOUNT_GROUP_SIZE = 3;
-const DISCOUNT_RESULTED_PRICE = 0;
+const DISCOUNTED_RATE = 1;
 @Injectable()
 export class Discount2For3Processor implements DiscountProcessor {
   static readonly code: string = '2for3';
@@ -27,7 +27,8 @@ export class Discount2For3Processor implements DiscountProcessor {
         if (prevProducts.length === DISCOUNT_GROUP_SIZE) {
           // set the cheapest one's resulted price to zero
           const cheapestItem = _.minBy(prevProducts, 'price');
-          cheapestItem.resultedPrice = DISCOUNT_RESULTED_PRICE;
+          cheapestItem.resultedPrice =
+            cheapestItem.price * (1 - DISCOUNTED_RATE);
           cheapestItem.discountCode = Discount2For3Processor.code;
           prevProducts = [];
         }
