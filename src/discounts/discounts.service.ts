@@ -114,6 +114,8 @@ export class DiscountsService {
           this.discountProcessorMap.getProcessor(discountCode);
 
         // get discount products related to this discount code
+        // as all relevant discounts have been retrieved above
+        // so, pass the discounted products to the corresponding processor for reducing the database query
         const discountProducts = _.uniq(
           _.map(discountItems, (discountItem) => {
             if (discountItem.code === discountCode) return discountItem.product;

@@ -69,11 +69,30 @@ You are free to make your solution to this exercise as simple or as complicated 
 - User interface (web app)
 - Application CLI
 
+## Exercise solution for REST/HTTP API
+
+- This solution exercises REST/HTTP API built with the Nest.JS framework and Postgres.
+- The local development environment can run in Docker container with the docker-compose script.
+- This project combines the pricing and discounting services, but does not include order management, etc. It's designed to be part of the entire shop system.
+
 ## Running services
 
-- Make a directory named 'data' under the project root directory, this is for storing the database data permanently. Its location can be changed in docker-compose.yml
+- Install Docker engine, docker-compose and Yarn cli if not yet
+- Make a directory named 'data' under the project root directory, this is for storing the data files of postgres database permanently. Its location can be changed in docker-compose.yml
 - Run 'docker-compose up'
+- Import `./kns-dev-test.postman_collection.json` and `./kns-local.postman_environment.json` into PostMan
+- The default `api_host` is 'http://localhost:3000', the env var PORT can be changed in docker-compose.yml
+- Run all the examples under the `products/saveProduct` and `discounts/createDiscount` APIs. Each product has its name and price, and each discount has product name, discount code, start time and end time of validity period. The validity period for the same product cannot overlap. However, different discounts can be applied to the same product for different validity periods.
+- Try the examples under the `scan` APIs, include the example basket from this exercise.
+- Run unit test with `yarn test`
+- Run e2e test with `yarn test:e2e`
 
 ## TODO
+
 - To use a logger like winston
-- To cache the prices of products
+- To cache the prices of products, e.g. Redis
+- To unify the field name for product name, reuse the ProductItem class.
+- To unify the data structure of the exceptional response and the successful response
+- To add more unit test and e2e test cases, improve the coverage.
+- To build an API Doc and client web app using React and Next.JS
+- To refine the project file structure
