@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "94b95af5-21c8-4411-bf36-2600a06fb0cc",
+		"name": "kns-dev-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "51872"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "saveProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"potato\",\n    \"price\": 26\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/products/",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_host}}/products/1",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "discounts",
+			"item": [
+				{
+					"name": "applyDiscounts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\": [\n        {\n            \"product\": \"apple\",\n            \"price\": 50\n        },\n        {\n            \"product\": \"banana\",\n            \"price\": 40\n        },\n        {\n            \"product\": \"banana\",\n            \"price\": 40\n        },\n        {\n            \"product\": \"potato\",\n            \"price\": 26\n        },\n        {\n            \"product\": \"tomato\",\n            \"price\": 30\n        },\n        {\n            \"product\": \"banana\",\n            \"price\": 40\n        },\n        {\n            \"product\": \"potato\",\n            \"price\": 26\n        },\n        {\n            \"product\": \"apple\",\n            \"price\": 2\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/discounts/apply",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"discounts",
+								"apply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "applyDiscounts2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/discounts/apply",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"discounts",
+								"apply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createDiscount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\": \"potato\",\n    \"code\": \"buy1get1halfprice\",\n    \"startTime\": \"2023-03-10T00:00:00.000Z\",\n    \"endTime\": \"2023-04-10T22:59:59.999Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_host}}/discounts/",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"discounts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancelDiscount",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_host}}/discounts/11",
+							"host": [
+								"{{api_host}}"
+							],
+							"path": [
+								"discounts",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "scan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"products\": [\n        \"apple\",\n        \"banana\",\n        \"banana\",\n        \"potato\",\n        \"tomato\",\n        \"banana\",\n        \"potato\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_host}}/scan",
+					"host": [
+						"{{api_host}}"
+					],
+					"path": [
+						"scan"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
