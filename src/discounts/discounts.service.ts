@@ -11,8 +11,6 @@ import { Discount } from '../entities/discount.entity';
 import {
   CreateDiscountInput,
   CreateDiscountOutput,
-} from './dto/create-discount.dto';
-import {
   CancelDiscountInput,
   CancelDiscountOutput,
   ApplyDiscountsInput,
