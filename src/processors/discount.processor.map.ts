@@ -12,7 +12,6 @@ export class DiscountProcessorMap {
   ) {}
 
   getProcessor(code: string) {
-    console.debug('DiscountProcessorMap.getProcessor()#code', code);
     switch (code) {
       case DiscountHalfPriceProcessor.code:
         return this.discountHalfPriceProcessor;

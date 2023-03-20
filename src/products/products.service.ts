@@ -64,7 +64,6 @@ export class ProductsService {
         name: Any(uniqueNames),
       },
     });
-    console.debug('applyPrices()#products', products);
 
     // convert to map<{ name: price }> for retrieve price by name below
     const productNameToPriceMap = _.reduce(
@@ -75,7 +74,6 @@ export class ProductsService {
       },
       {},
     );
-    console.debug('applyPrices()#productNameToPriceMap', productNameToPriceMap);
 
     const result = _.map(names, (name) => {
       if (name in productNameToPriceMap) {
@@ -90,7 +88,6 @@ export class ProductsService {
         };
       }
     });
-    console.debug('applyPrices()#result', result);
 
     return { products: result };
   }

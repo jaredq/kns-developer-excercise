@@ -36,7 +36,6 @@ export class Discount2For3Processor implements DiscountProcessor {
       return productItem;
     });
 
-    console.debug('Discount2For3Processor.process()#result', result);
     return result;
   }
 }

@@ -34,10 +34,6 @@ export class DiscountBuy1Get1HalfPriceProcessor implements DiscountProcessor {
       return productItem;
     });
 
-    console.debug(
-      'DiscountBuy1Get1HalfPriceProcessor.process()#result',
-      result,
-    );
     return result;
   }
 }

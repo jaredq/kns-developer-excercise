@@ -25,7 +25,6 @@ export class DiscountHalfPriceProcessor implements DiscountProcessor {
       return productItem;
     });
 
-    console.debug('DiscountHalfPriceProcessor.process()#result', result);
     return result;
   }
 }

@@ -82,7 +82,6 @@ export class DiscountsService {
 
     // find current relevant valid discounts
     const productNames = _.uniq(_.map(products, 'product'));
-    console.debug('productNames', productNames);
 
     const now = new Date();
     const discountItems = await this.discountRepository.find({
@@ -92,11 +91,9 @@ export class DiscountsService {
         endTime: MoreThanOrEqual(now),
       },
     });
-    console.debug('discountItems', discountItems);
 
     // get the codes of current relevant valid discounts
     const discountCodes = _.uniq(_.map(discountItems, 'code'));
-    console.debug('discountCodes', discountCodes);
 
     // convert the product list to resulted product list
     let resultedProducts = products.map((p) => ({
