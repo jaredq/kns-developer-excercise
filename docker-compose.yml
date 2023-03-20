@@ -28,3 +28,17 @@ services:
       - ./data:/var/lib/postgresql/data
     ports:
       - 5432:5432
+  apidoc:
+    container_name: kns-dev-apidoc
+    image: node:latest
+    working_dir: /app
+    volumes:
+      - ./apidoc:/app
+    ports:
+      - 3001:3001
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+    depends_on:
+      - app
+    command: yarn dev
