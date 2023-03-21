@@ -1,4 +1,5 @@
 import './globals.css';
+import Navigation from './components/navigation';
 
 export const metadata = {
   title: 'KNS API Doc',
@@ -12,7 +13,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className="container">
+          <div className="left-panel">
+            <Navigation />
+          </div>
+          <div className="main-content">{children}</div>
+        </div>
+      </body>
     </html>
   );
 }

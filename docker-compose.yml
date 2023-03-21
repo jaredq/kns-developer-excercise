@@ -28,6 +28,7 @@ services:
       - ./data:/var/lib/postgresql/data
     ports:
       - 5432:5432
+
   apidoc:
     container_name: kns-dev-apidoc
     image: node:latest
